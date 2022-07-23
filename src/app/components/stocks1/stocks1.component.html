@@ -1,0 +1,54 @@
+<h2>Stock1 Details</h2>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Index</th>
+            <th scope="col">ID</th>
+            <th scope="col">Stock Name</th>
+            <th scope="col">Stock Market Cap</th>
+            <th scope="col">Stock Market Sector</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Buy price</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let stockRecord of stock1Records;let i=index" [ngSwitch]="stockRecord.symbol" appHighlight>
+            <td>
+                <p>{{i+1}}</p>
+            </td>
+            <td>
+                <p [ngClass]="stockRecord.buyPrice>250 ? 'blueClass':'redClass'">{{stockRecord.id}}</p>
+            </td>
+            <td>
+                <p [ngClass]="stockRecord.buyPrice>250 ? 'blueClass':'redClass'">{{stockRecord.stockName }} </p>
+            </td>
+            <td>
+                <p [ngClass]="['blueClass']" >{{stockRecord.stockMarketCap }}</p>
+            </td>
+            <td>
+                <p [ngStyle]="{'background-color':stockRecord.symbol==='BIOS'?'grey' : 'white', 'pointer':'cursor'}">{{stockRecord.stockMSector}}</p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate }} </p>
+            </td>
+
+            <td *ngSwitchCase="'BIOS'"> 
+                <p >TEST BIOS </p>
+               
+            </td> 
+            <td *ngSwitchDefault> 
+              <p >{{stockRecord.symbol}} </p>
+             
+          </td>
+
+            <td>
+                <p>{{stockRecord.buyPrice}}</p>
+            </td>
+
+            
+
+        </tr>
+    </tbody>
+</table>

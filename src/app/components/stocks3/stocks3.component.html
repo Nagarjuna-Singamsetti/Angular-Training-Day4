@@ -1,0 +1,121 @@
+<h1>Understanding built in pipes in angular</h1>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">JSON Value</th>
+            <th scope="col">Index</th>
+            <th scope="col">ID</th>
+            <th scope="col">Stock Name, lowercase</th>
+            <th scope="col">Stock Name, uppercase</th>
+            <th scope="col">Stock Name, title case</th>
+            <th scope="col">Stock Name, slice</th>
+            <th scope="col">Stock Market Cap number</th>
+            <th scope="col">Stock Market Cap number with parm</th>
+            <th scope="col">Stock Market Cap percent</th>
+            <th scope="col">Stock Market Cap currency</th>
+            <th scope="col">Stock Market Cap currency with country code</th>
+            <th scope="col">Stock Market Sector</th>
+            <th scope="col">Release Date custom date</th>
+            <th scope="col">Release Date normal date</th>
+            <th scope="col">Release Date short date and time</th>
+            <th scope="col">Release Date medium date and time</th>
+            <th scope="col">Release Date long date and time</th>
+            <th scope="col">Release Date full date and time</th>
+            <th scope="col">Release Date short time</th>
+            <th scope="col">Release Date medium time</th>
+            <th scope="col">Release Date long time</th>
+            <th scope="col">Release Date full time</th>
+            <th scope="col">Release Date long date</th>
+
+            <th scope="col">Symbol</th>
+            <th scope="col">Buy price</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let stockRecord of stock3Records;let i=index" appHighlight>
+            <td>
+                <p>{{stockRecord| json}}</p>
+            </td>
+            <td>
+                <p>{{i+1}}</p>
+            </td>
+            <td>
+                <p>{{stockRecord.id}}</p>
+            </td>
+            <td>
+                <p>{{stockRecord.stockName| lowercase}} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.stockName|uppercase }} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.stockName|titlecase }} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.stockName|slice:3:8 }} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.stockMarketCap |number}}</p>
+            </td>
+            <td>
+                <p>{{stockRecord.stockMarketCap |number:'1.0-0'}}</p>
+            </td>
+            <td>
+                <p>{{stockRecord.stockMarketCap |percent:'2.1-2'}}</p>
+            </td> 
+            <td>
+                <p>{{stockRecord.stockMarketCap |currency}}</p>
+            </td>
+            <td>
+                <p>{{stockRecord.stockMarketCap |currency:'INR'}}</p>
+            </td>
+
+            <td>
+                <p>{{stockRecord.stockMSector}}</p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate |date:'dd/MM/yyyy'}} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate }} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate|date:'short'}} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate |date:'medium'}} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate |date:'long'}} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate |date:'full'| uppercase}} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate|date:'shortTime' }} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate |date:'mediumTime'}} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate|date :'longTime'}} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate|date :'fullTime'}} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate|date :'longDate'}} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.symbol}} </p>
+
+            </td>
+
+            <td>
+                <p>{{stockRecord.buyPrice}}</p>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

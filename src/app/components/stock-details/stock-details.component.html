@@ -1,0 +1,66 @@
+<h3>Stock-Details</h3>
+<ul>
+    <li>
+        <span *ngIf="!isStockDetailsEditable">{{stockDetails.id}}</span>
+        <input *ngIf="isStockDetailsEditable" type="text" [(ngModel)]="stockDetails.id"/>
+    </li>
+    <li>
+        <span *ngIf="!isStockDetailsEditable">{{stockDetails.stockName}}</span>
+        <input *ngIf="isStockDetailsEditable" type="text" [(ngModel)]="stockDetails.stockName"/>
+    </li>
+    <li>
+        <span *ngIf="!isStockDetailsEditable">{{stockDetails.stockMarketCap}}</span>
+        <input *ngIf="isStockDetailsEditable"type="text" [(ngModel)]="stockDetails.stockMarketCap"/>
+    </li>
+    <li>
+        <span *ngIf="!isStockDetailsEditable">{{stockDetails.stockMSector}}</span>
+        <input *ngIf="isStockDetailsEditable" type="text" [(ngModel)]="stockDetails.stockMSector"/>
+    </li>
+    <li>
+        <span *ngIf="!isStockDetailsEditable">{{stockDetails.releaseDate}}</span>
+        <input *ngIf="isStockDetailsEditable" type="text" [(ngModel)]="stockDetails.releaseDate"/>
+    </li>
+    <li>
+        <span *ngIf="!isStockDetailsEditable">{{stockDetails.symbol}}</span>
+        <input *ngIf="isStockDetailsEditable" type="text" [(ngModel)]="stockDetails.symbol"/>
+    </li>
+    <li>
+        <span *ngIf="!isStockDetailsEditable">{{stockDetails.buyPrice}}</span>
+        <input *ngIf="isStockDetailsEditable" type="text" [(ngModel)]="stockDetails.buyPrice"/>
+    </li>
+</ul>
+
+<button class="btn btn-success" (click)="editStock()">Edit Stock</button>
+<button class="btn btn-primary" (click)="updateStock()">Update Stock</button>
+
+<!-- html code sanity using angular template directives -->
+
+<ng-container  *ngIf="!isStockDetailsEditable; then stockContent; else DefaultContent">
+
+</ng-container>
+
+
+<ng-template  #stockContent>
+    <ul >
+
+        <li>{{stockDetails.id}}</li>
+        <li appHighlight>{{stockDetails.stockName}}</li>
+        <li>{{stockDetails.stockMarketCap}}</li>
+        <li>{{stockDetails.stockMSector}}</li>
+        <li>{{stockDetails.releaseDate}}</li>
+        <li>{{stockDetails.symbol}}</li>
+        <li>{{stockDetails.buyPrice}}</li>
+    </ul>
+</ng-template>
+
+<ng-template  #DefaultContent>
+    <ul >
+        <li><input type="text" [(ngModel)]="stockDetails.id"></li>
+        <li><input type="text" [(ngModel)]="stockDetails.stockName"></li>
+        <li><input type="text" [(ngModel)]="stockDetails.stockMarketCap"></li>
+        <li><input type="text" [(ngModel)]="stockDetails.stockMSector"></li>
+        <li><input type="text" [(ngModel)]="stockDetails.releaseDate"></li>
+        <li><input type="text"[(ngModel)]="stockDetails.symbol" ></li>
+        <li><input type="text"[(ngModel)]="stockDetails.symbol" ></li>
+    </ul>
+</ng-template>

@@ -1,0 +1,14 @@
+<h4>{{title}}</h4>
+<div>
+    <div class="card" *ngFor="let news of newsDetails" >
+      <img class="card-img-top" [src]="news.urlToImage" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{news.title}}</h5>
+        <p class="card-text">{{news.description}}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">{{news.publishedAt}}</small>
+      </div>
+    </div>
+  
+  </div>

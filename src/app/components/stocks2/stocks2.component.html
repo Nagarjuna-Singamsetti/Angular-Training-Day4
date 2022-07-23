@@ -1,0 +1,52 @@
+<h1>Creating Custom Pipes</h1>
+
+<input type="text" [(ngModel)]="filterByStockName" placeholder="search stock name">
+{{filterByStockName}}
+<button class="btn btn-success" (click)="addStock()">Add bioCorp</button>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Index</th>
+            <th scope="col">ID</th>
+            <th scope="col">Stock Name</th>
+            <th scope="col">Stock Market Cap</th>
+            <th scope="col">Stock Market Sector</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Buy price</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let stockRecord of stock2Records |search :filterByStockName;let i=index" appHighlight>
+            <td>
+                <p>{{i+1}}</p>
+            </td>
+            <td>
+                <p>{{stockRecord.id}}</p>
+            </td>
+            <td>
+                <p>{{stockRecord.stockName }} </p>
+            </td>
+            <td>
+                <p>{{stockRecord.stockMarketCap }}</p>
+            </td>
+            <td>
+                <p>{{stockRecord.stockMSector}}</p>
+            </td>
+            <td>
+                <p>{{stockRecord.releaseDate }} </p>
+            </td>
+
+            <td>
+                <p>{{stockRecord.symbol |paren}} </p>
+
+            </td>
+
+            <td>
+                <p>{{stockRecord.buyPrice |paren:true}}</p>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
